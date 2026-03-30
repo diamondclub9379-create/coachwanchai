@@ -1,6 +1,27 @@
+plugins = []
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
 [build]
-  command = "hugo"
-  publish = "public"
+publish = "C:\\Users\\msi\\coachwanchai\\public"
+publishOrigin = "ui"
+commandOrigin = "ui"
+command = "hugo"
 
 [build.environment]
-  HUGO_VERSION = "0.147.6"
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

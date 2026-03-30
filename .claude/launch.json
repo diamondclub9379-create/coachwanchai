@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "coachwanchai",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["hugo", "server", "-p", "1314"],
+      "port": 1314
+    }
+  ]
+}
