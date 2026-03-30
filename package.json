@@ -1,0 +1,24 @@
+{
+  "name": "coachwanchai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diamondclub9379-create/coachwanchai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/diamondclub9379-create/coachwanchai/issues"
+  },
+  "homepage": "https://github.com/diamondclub9379-create/coachwanchai#readme",
+  "dependencies": {
+    "hugo-bin": "^0.149.2"
+  }
+}
