@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">CW</span>
+      <span class="logo-text">Coach Wanchai</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="nav-link{{ if $.IsMenuCurrent "main" . }} active{{ end }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="เปิดเมนู">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>บทความ</h1>
+    <p class="subtitle">เคล็ดลับการพัฒนาตัวเองและธุรกิจ</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    {{ partial "adsense.html" . }}
+    <div class="blog-grid">
+      {{ range .Pages.ByDate.Reverse }}
+      <article class="blog-card">
+        {{ with .Params.featuredImage }}
+        <img src="{{ . }}" alt="{{ $.Title }}" class="blog-card-image">
+        {{ end }}
+        <div class="blog-card-body">
+          <p class="blog-card-meta">{{ .Date.Format "2 January 2006" }}</p>
+          <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="blog-card-excerpt">{{ .Summary | truncate 120 }}</p>
+          <a href="{{ .Permalink }}" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ partial "adsense.html" . }}
+  </div>
+</section>
+{{ end }}

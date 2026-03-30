@@ -1,0 +1,7 @@
+name = "Coach Wanchai"
+license = "MIT"
+licenselink = ""
+description = "Hugo theme for Coach Wanchai personal brand website"
+
+[author]
+  name = "Coach Wanchai"

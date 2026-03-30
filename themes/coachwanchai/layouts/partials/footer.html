@@ -1,0 +1,29 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">CW</span>
+      <h3>Coach Wanchai</h3>
+      <p>{{ .Site.Params.description }}</p>
+    </div>
+    <div class="footer-links">
+      <h4>เมนู</h4>
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+    </div>
+    <div class="footer-contact">
+      <h4>ติดต่อ</h4>
+      {{ with .Site.Params.email }}<p>Email: {{ . }}</p>{{ end }}
+      {{ with .Site.Params.phone }}<p>โทร: {{ . }}</p>{{ end }}
+      {{ with .Site.Params.lineId }}<p>Line: {{ . }}</p>{{ end }}
+      {{ with .Site.Params.youtubeChannelName }}
+      <a href="https://www.youtube.com/@{{ . }}" target="_blank" rel="noopener">YouTube: {{ . }}</a>
+      {{ end }}
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; {{ now.Year }} Coach Wanchai. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="subtitle">{{ . }}</p>{{ end }}
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    {{ .Content }}
+    {{ range .Pages.ByDate.Reverse }}
+    <div style="margin-bottom: 1.5rem;">
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <p style="color: var(--color-text-light);">{{ .Summary | truncate 150 }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

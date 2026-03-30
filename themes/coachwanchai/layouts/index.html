@@ -1,0 +1,132 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1>Coach Wanchai</h1>
+    <p class="tagline">{{ .Site.Params.tagline }}</p>
+    <div class="hero-cta">
+      <a href="/services/" class="btn btn-cta">ดูบริการ</a>
+      <a href="/about/" class="btn btn-outline">เกี่ยวกับเรา</a>
+    </div>
+  </div>
+</section>
+
+<!-- Services Preview -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">บริการของเรา</h2>
+    <p class="section-subtitle">พร้อมช่วยคุณพัฒนาตัวเองและธุรกิจ</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">&#127919;</div>
+        <h3>Life Coaching</h3>
+        <p>โค้ชชีวิตส่วนตัว ช่วยคุณค้นหาเป้าหมาย วางแผนชีวิต และก้าวข้ามอุปสรรค</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128188;</div>
+        <h3>Business Coaching</h3>
+        <p>โค้ชธุรกิจ ช่วยวางกลยุทธ์ เพิ่มยอดขาย และสร้างระบบให้ธุรกิจเติบโต</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#127891;</div>
+        <h3>Workshop & Training</h3>
+        <p>อบรมและเวิร์คช็อปสำหรับองค์กร พัฒนาทีม สร้างผู้นำ เสริมทักษะ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ partial "adsense.html" . }}
+
+<!-- Latest Blog Posts -->
+{{ $posts := where .Site.RegularPages "Section" "blog" }}
+{{ if $posts }}
+<section class="section" style="background: var(--color-surface);">
+  <div class="container">
+    <h2 class="section-title">บทความล่าสุด</h2>
+    <p class="section-subtitle">เคล็ดลับการพัฒนาตัวเองและธุรกิจ</p>
+    <div class="blog-grid">
+      {{ range first 3 $posts.ByDate.Reverse }}
+      <article class="blog-card">
+        {{ with .Params.featuredImage }}
+        <img src="{{ . }}" alt="{{ $.Title }}" class="blog-card-image">
+        {{ end }}
+        <div class="blog-card-body">
+          <p class="blog-card-meta">{{ .Date.Format "2 January 2006" }}</p>
+          <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="blog-card-excerpt">{{ .Summary | truncate 120 }}</p>
+          <a href="{{ .Permalink }}" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Latest Videos -->
+{{ $videos := where .Site.RegularPages "Section" "videos" }}
+{{ if $videos }}
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">วิดีโอล่าสุด</h2>
+    <p class="section-subtitle">ติดตามเนื้อหาจากช่อง YouTube</p>
+    <div class="video-grid">
+      {{ range first 3 $videos.ByDate.Reverse }}
+      <div class="video-card">
+        {{ with .Params.youtubeId }}
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/{{ . }}" title="{{ $.Title }}" allowfullscreen loading="lazy"></iframe>
+        </div>
+        {{ end }}
+        <div class="video-card-body">
+          <h3 class="video-card-title">{{ .Title }}</h3>
+          <p class="video-card-desc">{{ .Description | truncate 100 }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="/videos/" class="btn btn-primary">ดูวิดีโอทั้งหมด</a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ partial "adsense.html" . }}
+
+<!-- Testimonials -->
+<section class="section" style="background: var(--color-surface);">
+  <div class="container">
+    <h2 class="section-title">เสียงจากลูกค้า</h2>
+    <p class="section-subtitle">ความประทับใจจากผู้ที่เคยร่วมงานกับเรา</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">โค้ชช่วยให้ผมเห็นภาพชัดเจนขึ้น ธุรกิจเติบโตขึ้น 3 เท่าในเวลาแค่ 6 เดือน</p>
+        <p class="testimonial-author">- คุณสมชาย (ผู้ประกอบการ)</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">เปลี่ยนมุมมองชีวิตไปเลย จากคนที่ไม่มีเป้าหมาย ตอนนี้รู้แล้วว่าอยากทำอะไร</p>
+        <p class="testimonial-author">- คุณวิภา (พนักงานบริษัท)</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Workshop ที่จัดให้ทีมเราดีมาก ทีมสามัคคีขึ้น ประสิทธิภาพการทำงานดีขึ้นชัดเจน</p>
+        <p class="testimonial-author">- คุณนภา (HR Manager)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>พร้อมเปลี่ยนแปลงชีวิตแล้วหรือยัง?</h2>
+      <p>ปรึกษาฟรี ไม่มีค่าใช้จ่าย นัดคุยกับโค้ชวันชัยได้เลย</p>
+      <a href="/contact/" class="btn btn-cta">ติดต่อเรา</a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

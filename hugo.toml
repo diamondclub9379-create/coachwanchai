@@ -1,0 +1,63 @@
+baseURL = "https://coachwanchai.netlify.app/"
+languageCode = "th"
+defaultContentLanguage = "th"
+title = "Coach Wanchai - โค้ชชีวิตและธุรกิจ"
+theme = "coachwanchai"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[params]
+  description = "Coach Wanchai - โค้ชชีวิตและธุรกิจ สร้างแรงบันดาลใจ พัฒนาตัวเอง เปลี่ยนชีวิตให้ดีขึ้น"
+  tagline = "เปลี่ยนชีวิต สร้างความสำเร็จ"
+  youtubeChannel = "UCOLtU6KsWbTOy4dDln8SkFg"
+  youtubeChannelName = "หิวกระแส"
+  email = ""
+  phone = ""
+  lineId = ""
+  facebook = ""
+  instagram = ""
+  adsenseId = ""
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menus.main]]
+  name = "หน้าแรก"
+  url = "/"
+  weight = 1
+
+[[menus.main]]
+  name = "เกี่ยวกับ"
+  url = "/about/"
+  weight = 2
+
+[[menus.main]]
+  name = "บริการ"
+  url = "/services/"
+  weight = 3
+
+[[menus.main]]
+  name = "บทความ"
+  url = "/blog/"
+  weight = 4
+
+[[menus.main]]
+  name = "วิดีโอ"
+  url = "/videos/"
+  weight = 5
+
+[[menus.main]]
+  name = "ติดต่อ"
+  url = "/contact/"
+  weight = 6

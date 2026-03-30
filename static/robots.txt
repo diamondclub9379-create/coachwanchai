@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://coachwanchai.netlify.app/sitemap.xml

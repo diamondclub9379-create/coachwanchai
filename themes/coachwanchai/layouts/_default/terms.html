@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    <div class="services-grid">
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" class="service-card" style="text-decoration:none;">
+        <h3>{{ .Title }}</h3>
+        <p>{{ len .Pages }} รายการ</p>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

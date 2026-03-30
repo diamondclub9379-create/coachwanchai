@@ -1,0 +1,53 @@
+{{ define "main" }}
+<article>
+  <div class="blog-header">
+    <div class="container">
+      <p class="meta">
+        {{ .Date.Format "2 January 2006" }}
+        {{ with .Params.categories }} | {{ range . }}<a href="/categories/{{ . | urlize }}/" class="tag">{{ . }}</a> {{ end }}{{ end }}
+      </p>
+      <h1>{{ .Title }}</h1>
+    </div>
+  </div>
+
+  {{ with .Params.featuredImage }}
+  <div class="blog-featured-image">
+    <img src="{{ . }}" alt="{{ $.Title }}">
+  </div>
+  {{ end }}
+
+  <div class="page-content">
+    {{ partial "adsense.html" . }}
+    {{ .Content }}
+
+    {{ with .Params.tags }}
+    <div class="post-tags">
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ partial "adsense.html" . }}
+
+    <!-- Related Posts -->
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ with $related }}
+    <h2>บทความที่เกี่ยวข้อง</h2>
+    <div class="blog-grid">
+      {{ range . }}
+      <article class="blog-card">
+        {{ with .Params.featuredImage }}
+        <img src="{{ . }}" alt="{{ $.Title }}" class="blog-card-image">
+        {{ end }}
+        <div class="blog-card-body">
+          <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <a href="{{ .Permalink }}" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

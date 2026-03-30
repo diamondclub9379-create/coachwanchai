@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>บริการของเรา</h1>
+    <p class="subtitle">เลือกบริการที่เหมาะกับคุณ</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    {{ range .Pages.ByWeight }}
+    <div class="service-detail">
+      <h2>{{ .Title }}</h2>
+      {{ with .Params.price }}<p class="price">{{ . }}</p>{{ end }}
+      {{ .Content }}
+      {{ with .Params.features }}
+      <ul class="service-features">
+        {{ range . }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+      {{ end }}
+      <div style="margin-top: 1.5rem;">
+        <a href="/contact/" class="btn btn-primary">สนใจบริการนี้</a>
+      </div>
+    </div>
+    {{ end }}
+
+    {{ partial "adsense.html" . }}
+
+    <div class="cta-banner">
+      <h2>ไม่แน่ใจว่าบริการไหนเหมาะ?</h2>
+      <p>ปรึกษาฟรี! เราช่วยคุณเลือกแผนที่เหมาะสมที่สุด</p>
+      <a href="/contact/" class="btn btn-cta">นัดปรึกษาฟรี</a>
+    </div>
+  </div>
+</section>
+{{ end }}

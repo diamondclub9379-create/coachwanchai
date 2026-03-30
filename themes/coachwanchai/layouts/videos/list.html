@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>วิดีโอ</h1>
+    <p class="subtitle">เนื้อหาจากช่อง YouTube @coachwanchai</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    {{ partial "adsense.html" . }}
+    <div class="video-grid">
+      {{ range .Pages.ByDate.Reverse }}
+      <div class="video-card">
+        {{ with .Params.youtubeId }}
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/{{ . }}" title="{{ $.Title }}" allowfullscreen loading="lazy"></iframe>
+        </div>
+        {{ end }}
+        <div class="video-card-body">
+          <h3 class="video-card-title">{{ .Title }}</h3>
+          {{ with .Params.description }}<p class="video-card-desc">{{ . }}</p>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ partial "adsense.html" . }}
+
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="https://www.youtube.com/@coachwanchai" target="_blank" rel="noopener" class="btn btn-primary">
+        ติดตามช่อง YouTube
+      </a>
+    </div>
+  </div>
+</section>
+{{ end }}
