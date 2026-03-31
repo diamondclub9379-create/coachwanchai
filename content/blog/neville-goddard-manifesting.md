@@ -8,6 +8,7 @@ tags:
   - Neville Goddard
   - manifest
   - จินตนาการ
+featuredImage: "/images/blog/neville-goddard-manifesting.png"
 ---
 
 ## Neville Goddard ปรมาจารย์แห่งการ Manifest

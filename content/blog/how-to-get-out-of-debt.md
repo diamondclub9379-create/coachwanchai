@@ -8,6 +8,7 @@ tags:
   - หนี้สิน
   - การเงิน
   - เริ่มต้นใหม่
+featuredImage: "/images/blog/how-to-get-out-of-debt.png"
 ---
 
 ## หนี้สินไม่ใช่จุดจบ แต่เป็นจุดเริ่มต้น

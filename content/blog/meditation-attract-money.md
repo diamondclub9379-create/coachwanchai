@@ -8,6 +8,7 @@ tags:
   - สมาธิ
   - ดึงดูดเงิน
   - meditation
+featuredImage: "/images/blog/meditation-attract-money.png"
 ---
 
 ## สมาธิกับการดึงดูดเงิน เกี่ยวข้องกันอย่างไร?

@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/diamondclub9379-create/coachwanchai#readme",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "canvas": "^3.2.2",
     "hugo-bin": "^0.149.2"
   }
 }

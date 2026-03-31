@@ -8,6 +8,7 @@ tags:
   - จักระ
   - พลังงาน
   - ความอุดมสมบูรณ์
+featuredImage: "/images/blog/chakra-energy-money.png"
 ---
 
 ## จักระกับเรื่องเงิน เกี่ยวข้องกันอย่างไร?

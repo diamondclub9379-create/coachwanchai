@@ -1,0 +1,80 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="container">
+    <h1>สินค้า/หนังสือ</h1>
+    <p class="subtitle">สินค้าและหนังสือเพื่อพัฒนาตัวเองจาก Coach Wanchai</p>
+  </div>
+</div>
+<section class="section">
+  <div class="container">
+    {{ partial "adsense.html" . }}
+
+    <!-- ผลงานเขียน -->
+    {{ $written := where .Pages "Params.categories" "intersect" (slice "ผลงานเขียน") }}
+    {{ with $written }}
+    <h2 class="section-heading">ผลงานเขียนโดย วันชัย ประชาเรืองวิทย์</h2>
+    <div class="products-grid">
+      {{ range .ByWeight }}
+      <div class="product-card">
+        {{ with .Params.image }}
+        <div class="product-image">
+          <img src="{{ . }}" alt="{{ $.Title }}">
+        </div>
+        {{ end }}
+        <div class="product-body">
+          <h3 class="product-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          {{ with .Params.price }}<p class="product-price">{{ . }}</p>{{ end }}
+          <p class="product-excerpt">{{ .Summary | truncate 100 }}</p>
+          <div class="product-actions">
+            <a href="{{ .Permalink }}" class="btn btn-primary">ดูรายละเอียด</a>
+            {{ with .Params.shopeeUrl }}<a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-shopee">สั่งซื้อที่ Shopee</a>{{ end }}
+            {{ $priceNum := 0 }}{{ with .Params.price }}{{ $priceNum = replaceRE "[^0-9]" "" . }}{{ end }}
+            <button class="btn btn-cart" data-product-id="{{ .File.ContentBaseName }}" data-product-name="{{ .Title }}" data-product-price="{{ $priceNum }}" data-product-image="{{ .Params.image }}">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ partial "adsense.html" . }}
+
+    <!-- ผลงานแปล -->
+    {{ $translated := where .Pages "Params.categories" "intersect" (slice "ผลงานแปล") }}
+    {{ with $translated }}
+    <h2 class="section-heading">ผลงานแปลโดย วันชัย ประชาเรืองวิทย์</h2>
+    <div class="products-grid">
+      {{ range .ByWeight }}
+      <div class="product-card">
+        {{ with .Params.image }}
+        <div class="product-image">
+          <img src="{{ . }}" alt="{{ $.Title }}">
+        </div>
+        {{ end }}
+        <div class="product-body">
+          <h3 class="product-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          {{ with .Params.originalAuthor }}<p class="product-original-author">ผลงานของ {{ . }}</p>{{ end }}
+          {{ with .Params.price }}<p class="product-price">{{ . }}</p>{{ end }}
+          <p class="product-excerpt">{{ .Summary | truncate 100 }}</p>
+          <div class="product-actions">
+            <a href="{{ .Permalink }}" class="btn btn-primary">ดูรายละเอียด</a>
+            {{ with .Params.shopeeUrl }}<a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-shopee">สั่งซื้อที่ Shopee</a>{{ end }}
+            {{ $priceNum := 0 }}{{ with .Params.price }}{{ $priceNum = replaceRE "[^0-9]" "" . }}{{ end }}
+            <button class="btn btn-cart" data-product-id="{{ .File.ContentBaseName }}" data-product-name="{{ .Title }}" data-product-price="{{ $priceNum }}" data-product-image="{{ .Params.image }}">เพิ่มลงตะกร้า</button>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ partial "adsense.html" . }}
+
+    <div class="cta-banner">
+      <h2>ต้องการคำแนะนำ?</h2>
+      <p>ไม่แน่ใจว่าเล่มไหนเหมาะกับคุณ ปรึกษา Coach Wanchai ได้เลย</p>
+      <a href="/contact/" class="btn btn-cta">ติดต่อเรา</a>
+    </div>
+  </div>
+</section>
+{{ end }}

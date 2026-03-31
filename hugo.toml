@@ -15,6 +15,18 @@ theme = "coachwanchai"
 [sitemap]
   changefreq = "weekly"
   priority = 0.5
+  filename = "sitemap.xml"
+
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
 
 [params]
   description = "Coach Wanchai - โค้ชชีวิตและธุรกิจ สร้างแรงบันดาลใจ พัฒนาตัวเอง เปลี่ยนชีวิตให้ดีขึ้น"
@@ -53,11 +65,16 @@ theme = "coachwanchai"
   weight = 4
 
 [[menus.main]]
+  name = "สินค้า/หนังสือ"
+  url = "/products/"
+  weight = 5
+
+[[menus.main]]
   name = "วิดีโอ"
   url = "/videos/"
-  weight = 5
+  weight = 6
 
 [[menus.main]]
   name = "ติดต่อ"
   url = "/contact/"
-  weight = 6
+  weight = 7

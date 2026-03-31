@@ -8,6 +8,7 @@ tags:
   - coaching
   - พัฒนาตัวเอง
   - เป้าหมาย
+featuredImage: "/images/blog/why-you-need-coach.png"
 ---
 
 ## ทำไมคนสำเร็จถึงมีโค้ช?

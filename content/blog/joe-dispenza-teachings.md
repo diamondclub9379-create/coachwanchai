@@ -8,6 +8,7 @@ tags:
   - Joe Dispenza
   - พลังจิต
   - เปลี่ยนชีวิต
+featuredImage: "/images/blog/joe-dispenza-teachings.png"
 ---
 
 ## Dr. Joe Dispenza คือใคร?

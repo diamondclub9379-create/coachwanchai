@@ -8,6 +8,7 @@ tags:
   - เป้าหมาย
   - SMART goals
   - วางแผน
+featuredImage: "/images/blog/goal-setting-guide.png"
 ---
 
 ทุกปีเราตั้งเป้าหมาย แต่ทำไมส่วนใหญ่ถึงล้มเหลว? เพราะเราตั้งเป้าหมายผิดวิธี

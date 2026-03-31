@@ -8,6 +8,7 @@ tags:
   - กฎแรงดึงดูด
   - law of attraction
   - พลังจิต
+featuredImage: "/images/blog/law-of-attraction-guide.png"
 ---
 
 ## กฎแรงดึงดูดคืออะไร?

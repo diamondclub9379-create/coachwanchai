@@ -1,0 +1,108 @@
+{{ define "main" }}
+<!-- Schema.org Product -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ .Title }}",
+  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}",
+  {{ with .Params.image }}"image": "{{ . | absURL }}",{{ end }}
+  "brand": {
+    "@type": "Brand",
+    "name": "Coach Wanchai"
+  }{{ with .Params.price }},
+  "offers": {
+    "@type": "Offer",
+    "price": "{{ . }}",
+    "priceCurrency": "THB",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Person",
+      "name": "Coach Wanchai"
+    }{{ with $.Params.shopeeUrl }},
+    "url": "{{ . }}"{{ end }}
+  }{{ end }}
+}
+</script>
+<!-- BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "หน้าแรก", "item": "{{ .Site.BaseURL }}" },
+    { "@type": "ListItem", "position": 2, "name": "สินค้า/หนังสือ", "item": "{{ .Site.BaseURL }}products/" },
+    { "@type": "ListItem", "position": 3, "name": "{{ .Title }}", "item": "{{ .Permalink }}" }
+  ]
+}
+</script>
+<article>
+  <div class="blog-header">
+    <div class="container">
+      <p class="meta">
+        {{ with .Params.categories }}{{ range . }}<a href="/categories/{{ . | urlize }}/" class="tag">{{ . }}</a> {{ end }}{{ end }}
+      </p>
+      <h1 class="product-page-title">{{ .Title }}</h1>
+      {{ with .Params.price }}<p class="product-price-large">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+
+  {{ with .Params.image }}
+  <div class="product-hero-image">
+    <img src="{{ . }}" alt="{{ $.Title }}">
+  </div>
+  {{ end }}
+
+  <div class="page-content">
+    {{ partial "adsense.html" . }}
+    {{ .Content }}
+
+    {{ with .Params.shopeeUrl }}
+    <div class="product-buy-section">
+      <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-shopee btn-lg">สั่งซื้อที่ Shopee</a>
+    </div>
+    {{ end }}
+
+    {{ $priceNum := 0 }}{{ with .Params.price }}{{ $priceNum = replaceRE "[^0-9]" "" . }}{{ end }}
+    <div class="product-buy-section">
+      <button class="btn btn-cart btn-lg" data-product-id="{{ .File.ContentBaseName }}" data-product-name="{{ .Title }}" data-product-price="{{ $priceNum }}" data-product-image="{{ .Params.image }}">เพิ่มลงตะกร้า</button>
+    </div>
+
+    <div class="product-buy-section">
+      <a href="/contact/" class="btn btn-primary">สอบถามเพิ่มเติม</a>
+    </div>
+
+    {{ with .Params.tags }}
+    <div class="post-tags">
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ partial "adsense.html" . }}
+
+    <!-- Related Products -->
+    {{ $related := .Site.RegularPages.Related . | first 3 }}
+    {{ with $related }}
+    <h2>สินค้าที่เกี่ยวข้อง</h2>
+    <div class="products-grid">
+      {{ range . }}
+      <div class="product-card">
+        {{ with .Params.image }}
+        <div class="product-image">
+          <img src="{{ . }}" alt="{{ $.Title }}">
+        </div>
+        {{ end }}
+        <div class="product-body">
+          <h3 class="product-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          {{ with .Params.price }}<p class="product-price">{{ . }}</p>{{ end }}
+          <a href="{{ .Permalink }}" class="btn btn-primary">ดูรายละเอียด</a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

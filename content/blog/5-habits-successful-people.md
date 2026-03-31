@@ -8,6 +8,7 @@ tags:
   - นิสัย
   - ความสำเร็จ
   - self improvement
+featuredImage: "/images/blog/5-habits-successful-people.png"
 ---
 
 คุณเคยสงสัยไหมว่าทำไมบางคนถึงประสบความสำเร็จ ในขณะที่บางคนยังอยู่กับที่? คำตอบอยู่ที่ **นิสัยประจำวัน**

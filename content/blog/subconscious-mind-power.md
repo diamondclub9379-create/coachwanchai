@@ -8,6 +8,7 @@ tags:
   - จิตใต้สำนึก
   - NLP
   - พลังจิต
+featuredImage: "/images/blog/subconscious-mind-power.png"
 ---
 
 ## จิตใต้สำนึกคืออะไร?

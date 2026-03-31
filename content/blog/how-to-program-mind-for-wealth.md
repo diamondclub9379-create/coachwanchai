@@ -8,6 +8,7 @@ tags:
   - โปรแกรมจิต
   - ความมั่งคั่ง
   - จิตใต้สำนึก
+featuredImage: "/images/blog/how-to-program-mind-for-wealth.png"
 ---
 
 ## ทำไมบางคนรวย บางคนจน?

@@ -8,6 +8,7 @@ tags:
   - ความรวย
   - นิสัยเศรษฐี
   - การเงิน
+featuredImage: "/images/blog/5-secrets-rich-people.png"
 ---
 
 ## ความลับของคนรวยที่คุณต้องรู้
