@@ -713,6 +713,120 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 600; lin
   margin: 2rem 0;
 }
 
+/* ===== Shopee Stores Grid ===== */
+.shopee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.shopee-card {
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+  border-top: 4px solid #ee4d2d;
+}
+.shopee-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+.shopee-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.shopee-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+.shopee-card p {
+  color: var(--color-text-light);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Lead Magnet Banner ===== */
+.lead-magnet-banner {
+  background: linear-gradient(135deg, #06c755 0%, #04a648 100%);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: var(--radius);
+}
+.lead-magnet-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+.lead-magnet-content p {
+  font-size: 1.15rem;
+  opacity: 0.95;
+  margin-bottom: 0.5rem;
+}
+.lead-magnet-sub {
+  font-size: 1rem !important;
+  opacity: 0.85 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* ===== Channels Hub Grid ===== */
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+  text-decoration: none;
+  color: var(--color-text);
+}
+.channel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+.channel-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+.channel-card h3 {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+.channel-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+.channel-line .channel-icon { background: #06c755; }
+.channel-facebook .channel-icon { background: #1877f2; }
+.channel-youtube .channel-icon { background: #ff0000; }
+.channel-shopee .channel-icon { background: #ee4d2d; }
+
+@media (max-width: 768px) {
+  .shopee-grid { grid-template-columns: 1fr; }
+  .channels-grid { grid-template-columns: repeat(2, 1fr); }
+  .lead-magnet-content h2 { font-size: 1.6rem; }
+}
+@media (max-width: 480px) {
+  .channels-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ===== Ad Slot ===== */
 .ad-slot { margin: 2rem 0; text-align: center; }
 

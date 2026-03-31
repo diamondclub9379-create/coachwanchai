@@ -21,7 +21,7 @@
       <div class="service-card">
         <div class="service-icon">&#127919;</div>
         <h3>Life Coaching</h3>
-        <p>โค้ชชีวิตส่วนตัว ช่วยคุณค้นหาเป้าหมาย วางแผนชีวิต และก้าวข้ามอุปสรรค</p>
+        <p>โค้ชชีวิตส่วนตัว ช่วยคุณค้นหาเป้าหมาย วางแผนชีวิต และก้าวข้ามอุปสรรค ด้วยเทคนิค NLP และจิตใต้สำนึก</p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#128188;</div>
@@ -33,16 +33,49 @@
         <h3>Workshop & Training</h3>
         <p>อบรมและเวิร์คช็อปสำหรับองค์กร พัฒนาทีม สร้างผู้นำ เสริมทักษะ</p>
       </div>
+      <div class="service-card">
+        <div class="service-icon">&#129689;</div>
+        <h3>สอนเทรดทองคำ</h3>
+        <p>เรียนรู้การเทรดทองคำอย่างเป็นระบบ วิเคราะห์กราฟ บริหารความเสี่ยง ผสาน NLP กับจิตวิทยาการเทรด</p>
+      </div>
     </div>
   </div>
 </section>
 
 {{ partial "adsense.html" . }}
 
+<!-- Shopee Stores -->
+<section class="section" style="background: var(--color-surface);">
+  <div class="container">
+    <h2 class="section-title">ร้านค้าออนไลน์</h2>
+    <p class="section-subtitle">หนังสือพัฒนาตัวเองและหินมงคลเสริมพลัง</p>
+    <div class="shopee-grid">
+      <div class="shopee-card">
+        <div class="shopee-icon">&#128218;</div>
+        <h3>หนังสือ How-to แปลจากต่างประเทศ</h3>
+        <p>หนังสือพัฒนาตัวเอง กฎแรงดึงดูด NLP จิตใต้สำนึก แปลจากหนังสือขายดีต่างประเทศ</p>
+        <a href="{{ .Site.Params.shopeeBooks }}" target="_blank" rel="noopener" class="btn btn-shopee">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9v1H3l2.5 11h13L21 10h-2V9c0-3.87-3.13-7-7-7zm-3 8V9c0-1.66 1.34-3 3-3s3 1.34 3 3v1H9z"/></svg>
+          ร้านหนังสือ Shopee
+        </a>
+      </div>
+      <div class="shopee-card">
+        <div class="shopee-icon">&#128142;</div>
+        <h3>หินมงคลเสริมพลัง</h3>
+        <p>หินธรรมชาติเสริมดวง เสริมพลังความมั่งคั่ง เหมาะสำหรับผู้ที่ใช้กฎแรงดึงดูดและการทำสมาธิ</p>
+        <a href="{{ .Site.Params.shopeeStones }}" target="_blank" rel="noopener" class="btn btn-shopee">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9v1H3l2.5 11h13L21 10h-2V9c0-3.87-3.13-7-7-7zm-3 8V9c0-1.66 1.34-3 3-3s3 1.34 3 3v1H9z"/></svg>
+          ร้านหินมงคล Shopee
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Latest Blog Posts -->
 {{ $posts := where .Site.RegularPages "Section" "blog" }}
 {{ if $posts }}
-<section class="section" style="background: var(--color-surface);">
+<section class="section">
   <div class="container">
     <h2 class="section-title">บทความล่าสุด</h2>
     <p class="section-subtitle">เคล็ดลับการพัฒนาตัวเองและธุรกิจ</p>
@@ -61,17 +94,20 @@
       </article>
       {{ end }}
     </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="/blog/" class="btn btn-primary">อ่านบทความทั้งหมด</a>
+    </div>
   </div>
 </section>
 {{ end }}
 
-<!-- Latest Videos -->
+<!-- Latest Videos from @coachwanchai -->
 {{ $videos := where .Site.RegularPages "Section" "videos" }}
 {{ if $videos }}
-<section class="section">
+<section class="section" style="background: var(--color-surface);">
   <div class="container">
     <h2 class="section-title">วิดีโอล่าสุด</h2>
-    <p class="section-subtitle">ติดตามเนื้อหาจากช่อง YouTube</p>
+    <p class="section-subtitle">ติดตามเนื้อหาจากช่อง YouTube <a href="https://www.youtube.com/@coachwanchai" target="_blank" rel="noopener">@coachwanchai</a></p>
     <div class="video-grid">
       {{ range first 3 $videos.ByDate.Reverse }}
       <div class="video-card">
@@ -97,7 +133,7 @@
 {{ partial "adsense.html" . }}
 
 <!-- Testimonials -->
-<section class="section" style="background: var(--color-surface);">
+<section class="section">
   <div class="container">
     <h2 class="section-title">เสียงจากลูกค้า</h2>
     <p class="section-subtitle">ความประทับใจจากผู้ที่เคยร่วมงานกับเรา</p>
@@ -118,8 +154,65 @@
   </div>
 </section>
 
-<!-- CTA -->
+<!-- Lead Magnet CTA -->
+<section class="section" style="background: var(--color-surface);">
+  <div class="container">
+    <div class="lead-magnet-banner">
+      <div class="lead-magnet-content">
+        <h2>รับ E-book ฟรี!</h2>
+        <p>เทคนิค NLP เปลี่ยนชีวิต + เคล็ดลับกฎแรงดึงดูดที่ได้ผลจริง</p>
+        <p class="lead-magnet-sub">เพิ่มเพื่อน LINE @coachwanchai รับทันที</p>
+        <a href="https://line.me/R/ti/p/@coachwanchai" target="_blank" rel="noopener" class="btn btn-line btn-lg">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.88 2 10.54c0 4.24 3.76 7.78 8.84 8.44.34.07.81.22.93.51.1.26.07.67.03.93l-.15.9c-.05.28-.22 1.08.95.59 1.17-.5 6.3-3.71 8.6-6.35C23.07 13.43 22 11.1 22 10.54 22 5.88 17.52 2 12 2z"/></svg>
+          Add LINE รับ E-book ฟรี
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- All Channels Hub -->
 <section class="section">
+  <div class="container">
+    <h2 class="section-title">ติดตาม Coach Wanchai ได้ทุกช่องทาง</h2>
+    <p class="section-subtitle">เลือกช่องทางที่สะดวกสำหรับคุณ</p>
+    <div class="channels-grid">
+      <a href="https://line.me/R/ti/p/@coachwanchai" target="_blank" rel="noopener" class="channel-card channel-line">
+        <div class="channel-icon">LINE</div>
+        <h3>LINE OA</h3>
+        <p>@coachwanchai</p>
+      </a>
+      <a href="https://www.facebook.com/coachwanchai" target="_blank" rel="noopener" class="channel-card channel-facebook">
+        <div class="channel-icon">f</div>
+        <h3>Facebook</h3>
+        <p>Coach Wanchai</p>
+      </a>
+      <a href="https://www.youtube.com/@coachwanchai" target="_blank" rel="noopener" class="channel-card channel-youtube">
+        <div class="channel-icon">&#9654;</div>
+        <h3>YouTube หลัก</h3>
+        <p>@coachwanchai</p>
+      </a>
+      <a href="https://www.youtube.com/channel/UCOLtU6KsWbTOy4dDln8SkFg" target="_blank" rel="noopener" class="channel-card channel-youtube">
+        <div class="channel-icon">&#9654;</div>
+        <h3>YouTube ข่าวสั้น</h3>
+        <p>หิวกระแส</p>
+      </a>
+      <a href="{{ .Site.Params.shopeeBooks }}" target="_blank" rel="noopener" class="channel-card channel-shopee">
+        <div class="channel-icon">&#128218;</div>
+        <h3>Shopee หนังสือ</h3>
+        <p>coachwanchai</p>
+      </a>
+      <a href="{{ .Site.Params.shopeeStones }}" target="_blank" rel="noopener" class="channel-card channel-shopee">
+        <div class="channel-icon">&#128142;</div>
+        <h3>Shopee หินมงคล</h3>
+        <p>moneyluckyshop</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background: var(--color-surface);">
   <div class="container">
     <div class="cta-banner">
       <h2>พร้อมเปลี่ยนแปลงชีวิตแล้วหรือยัง?</h2>
