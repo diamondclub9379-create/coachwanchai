@@ -55,38 +55,70 @@
   </div>
   {{ end }}
 
-  <div class="page-content">
-    {{ partial "adsense.html" . }}
-    {{ .Content }}
+  <div class="blog-layout-3col">
+    <!-- Left Sidebar: Categories -->
+    {{ partial "sidebar-categories.html" . }}
 
-    {{ with .Params.tags }}
-    <div class="post-tags">
-      {{ range . }}
-      <a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>
-      {{ end }}
-    </div>
-    {{ end }}
+    <!-- Main Content -->
+    <div class="blog-main-content">
+      <div class="page-content">
+        {{ partial "adsense.html" . }}
+        {{ .Content }}
 
-    {{ partial "adsense.html" . }}
-
-    <!-- Related Posts -->
-    {{ $related := .Site.RegularPages.Related . | first 3 }}
-    {{ with $related }}
-    <h2>บทความที่เกี่ยวข้อง</h2>
-    <div class="blog-grid">
-      {{ range . }}
-      <article class="blog-card">
-        {{ with .Params.featuredImage }}
-        <img src="{{ . }}" alt="{{ $.Title }}" class="blog-card-image">
-        {{ end }}
-        <div class="blog-card-body">
-          <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <a href="{{ .Permalink }}" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+        {{ with .Params.tags }}
+        <div class="post-tags">
+          {{ range . }}
+          <a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>
+          {{ end }}
         </div>
-      </article>
-      {{ end }}
+        {{ end }}
+
+        {{ partial "adsense.html" . }}
+
+        <!-- Disqus Comments -->
+        {{ with .Site.Params.disqusShortname }}
+        <div class="comments-section">
+          <h2>แสดงความคิดเห็น</h2>
+          <div id="disqus_thread"></div>
+          <script>
+            var disqus_config = function () {
+              this.page.url = '{{ $.Permalink }}';
+              this.page.identifier = '{{ $.File.UniqueID }}';
+            };
+            (function() {
+              var d = document, s = d.createElement('script');
+              s.src = 'https://{{ . }}.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          <noscript>กรุณาเปิด JavaScript เพื่อดูความคิดเห็น</noscript>
+        </div>
+        {{ end }}
+
+        <!-- Related Posts -->
+        {{ $related := .Site.RegularPages.Related . | first 3 }}
+        {{ with $related }}
+        <h2>บทความที่เกี่ยวข้อง</h2>
+        <div class="blog-grid">
+          {{ range . }}
+          <article class="blog-card">
+            {{ with .Params.featuredImage }}
+            <img src="{{ . }}" alt="{{ $.Title }}" class="blog-card-image">
+            {{ end }}
+            <div class="blog-card-body">
+              <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+              <a href="{{ .Permalink }}" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+            </div>
+          </article>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
     </div>
-    {{ end }}
+
+    <!-- Right Sidebar: Books -->
+    {{ partial "sidebar-books.html" . }}
   </div>
 </article>
 {{ end }}

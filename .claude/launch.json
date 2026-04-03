@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "coachwanchai",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["hugo", "server", "-p", "1314"],
-      "port": 1314
+      "runtimeExecutable": "hugo",
+      "runtimeArgs": ["server", "-p", "1317", "--source", "C:/Users/msi/coachwanchai", "--disableFastRender"],
+      "port": 1317,
+      "cwd": "C:/Users/msi/coachwanchai"
     }
   ]
 }

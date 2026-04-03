@@ -2,12 +2,17 @@
 
 <!-- Hero Section -->
 <section class="hero">
-  <div class="container">
-    <h1>Coach Wanchai</h1>
-    <p class="tagline">{{ .Site.Params.tagline }}</p>
-    <div class="hero-cta">
-      <a href="/services/" class="btn btn-cta">ดูบริการ</a>
-      <a href="/about/" class="btn btn-outline">เกี่ยวกับเรา</a>
+  <div class="container hero-layout">
+    <div class="hero-text">
+      <h1>Coach Wanchai</h1>
+      <p class="tagline">{{ .Site.Params.tagline }}</p>
+      <div class="hero-cta">
+        <a href="/services/" class="btn btn-cta">ดูบริการ</a>
+        <a href="/about/" class="btn btn-outline">เกี่ยวกับเรา</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/images/profile.png" alt="Coach Wanchai" width="280" height="280">
     </div>
   </div>
 </section>
@@ -18,26 +23,42 @@
     <h2 class="section-title">บริการของเรา</h2>
     <p class="section-subtitle">พร้อมช่วยคุณพัฒนาตัวเองและธุรกิจ</p>
     <div class="services-grid">
-      <div class="service-card">
+      <a href="/services/life-coaching/" class="service-card">
         <div class="service-icon">&#127919;</div>
         <h3>Life Coaching</h3>
         <p>โค้ชชีวิตส่วนตัว ช่วยคุณค้นหาเป้าหมาย วางแผนชีวิต และก้าวข้ามอุปสรรค ด้วยเทคนิค NLP และจิตใต้สำนึก</p>
-      </div>
-      <div class="service-card">
+        <span class="service-link">ดูรายละเอียด &rarr;</span>
+      </a>
+      <a href="/services/business-coaching/" class="service-card">
         <div class="service-icon">&#128188;</div>
         <h3>Business Coaching</h3>
         <p>โค้ชธุรกิจ ช่วยวางกลยุทธ์ เพิ่มยอดขาย และสร้างระบบให้ธุรกิจเติบโต</p>
-      </div>
-      <div class="service-card">
+        <span class="service-link">ดูรายละเอียด &rarr;</span>
+      </a>
+      <a href="/services/workshop/" class="service-card">
         <div class="service-icon">&#127891;</div>
         <h3>Workshop & Training</h3>
         <p>อบรมและเวิร์คช็อปสำหรับองค์กร พัฒนาทีม สร้างผู้นำ เสริมทักษะ</p>
-      </div>
-      <div class="service-card">
+        <span class="service-link">ดูรายละเอียด &rarr;</span>
+      </a>
+      <a href="/services/gold-trading/" class="service-card">
         <div class="service-icon">&#129689;</div>
         <h3>สอนเทรดทองคำ</h3>
         <p>เรียนรู้การเทรดทองคำอย่างเป็นระบบ วิเคราะห์กราฟ บริหารความเสี่ยง ผสาน NLP กับจิตวิทยาการเทรด</p>
-      </div>
+        <span class="service-link">ดูรายละเอียด &rarr;</span>
+      </a>
+      <a href="/services/ai-training/" class="service-card">
+        <div class="service-icon">&#129302;</div>
+        <h3>สอนใช้ AI สำหรับธุรกิจ</h3>
+        <p>เรียนรู้ ChatGPT, Claude, สร้างคอนเทนต์ ทำการตลาด และ Automation ด้วย AI เพิ่มประสิทธิภาพธุรกิจ</p>
+        <span class="service-link">ดูรายละเอียด &rarr;</span>
+      </a>
+      <a href="/services/automation/" class="service-card">
+        <div class="service-icon">&#9881;</div>
+        <h3>รับทำระบบ Automation</h3>
+        <p>ออกแบบและสร้างระบบอัตโนมัติสำหรับองค์กร Chatbot, Workflow, เชื่อมต่อระบบ ลดงานซ้ำ เพิ่มประสิทธิภาพ</p>
+        <span class="service-link">ดูรายละเอียด &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
@@ -160,12 +181,17 @@
     <div class="lead-magnet-banner">
       <div class="lead-magnet-content">
         <h2>รับ E-book ฟรี!</h2>
-        <p>เทคนิค NLP เปลี่ยนชีวิต + เคล็ดลับกฎแรงดึงดูดที่ได้ผลจริง</p>
-        <p class="lead-magnet-sub">เพิ่มเพื่อน LINE @coachwanchai รับทันที</p>
-        <a href="https://line.me/R/ti/p/@coachwanchai" target="_blank" rel="noopener" class="btn btn-line btn-lg">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.88 2 10.54c0 4.24 3.76 7.78 8.84 8.44.34.07.81.22.93.51.1.26.07.67.03.93l-.15.9c-.05.28-.22 1.08.95.59 1.17-.5 6.3-3.71 8.6-6.35C23.07 13.43 22 11.1 22 10.54 22 5.88 17.52 2 12 2z"/></svg>
-          Add LINE รับ E-book ฟรี
-        </a>
+        <p>5 เทคนิค NLP เปลี่ยนชีวิต — เทคนิคที่ได้ผลจริงจาก Coach Wanchai</p>
+        <p class="lead-magnet-sub">ดาวน์โหลดได้เลย หรือเพิ่มเพื่อน LINE @coachwanchai รับเนื้อหาพิเศษเพิ่ม</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="/ebooks/5-nlp-techniques.pdf" target="_blank" class="btn btn-cta btn-lg">
+            ดาวน์โหลด E-book ฟรี (PDF)
+          </a>
+          <a href="https://line.me/R/ti/p/@coachwanchai" target="_blank" rel="noopener" class="btn btn-line btn-lg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.88 2 10.54c0 4.24 3.76 7.78 8.84 8.44.34.07.81.22.93.51.1.26.07.67.03.93l-.15.9c-.05.28-.22 1.08.95.59 1.17-.5 6.3-3.71 8.6-6.35C23.07 13.43 22 11.1 22 10.54 22 5.88 17.52 2 12 2z"/></svg>
+            Add LINE @coachwanchai
+          </a>
+        </div>
       </div>
     </div>
   </div>

@@ -6,24 +6,111 @@
   </div>
 </div>
 <section class="section">
-  <div class="container">
-    {{ partial "adsense.html" . }}
-    <div class="blog-grid">
-      {{ range .Pages.ByDate.Reverse }}
-      <article class="blog-card">
-        {{ with .Params.featuredImage }}
-        <img src="{{ . }}" alt="{{ $.Title }}" class="blog-card-image">
+  <div class="blog-layout-3col">
+    <!-- Left Sidebar: Categories -->
+    {{ partial "sidebar-categories.html" . }}
+
+    <!-- Main Content -->
+    <div class="blog-main-content">
+      {{ partial "adsense.html" . }}
+
+      <!-- Category Filter -->
+      <div class="category-filter">
+        <a href="/blog/" class="category-btn{{ if not .IsNode }} active{{ end }}{{ if eq (len (querify)) 0 }} active{{ end }}">ทั้งหมด ({{ len .Pages }})</a>
+        {{ $pages := .Pages }}
+        {{ $categories := slice }}
+        {{ range $pages }}
+          {{ with .Params.categories }}
+            {{ range . }}
+              {{ $categories = $categories | append . }}
+            {{ end }}
+          {{ end }}
         {{ end }}
-        <div class="blog-card-body">
-          <p class="blog-card-meta">{{ .Date.Format "2 January 2006" }}</p>
-          <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <p class="blog-card-excerpt">{{ .Summary | truncate 120 }}</p>
-          <a href="{{ .Permalink }}" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+        {{ $unique := uniq $categories }}
+        {{ range $cat := $unique }}
+          {{ $count := 0 }}
+          {{ range $pages }}
+            {{ with .Params.categories }}
+              {{ range . }}
+                {{ if eq . $cat }}{{ $count = add $count 1 }}{{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          <a href="/categories/{{ $cat | urlize }}/" class="category-btn">{{ $cat }} ({{ $count }})</a>
+        {{ end }}
+      </div>
+
+      {{ $sorted := sort .Pages ".Params.viewCount" "desc" }}
+      {{ $paginator := .Paginate $sorted 10 }}
+
+      <div class="blog-grid">
+        {{ range $paginator.Pages }}
+        <article class="blog-card">
+          {{ with .Params.featuredImage }}
+          <img src="{{ . }}" alt="{{ $.Title }}" class="blog-card-image" loading="lazy">
+          {{ end }}
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span>{{ .Date.Format "2 January 2006" }}</span>
+              {{ with .Params.categories }}
+                {{ range . }}
+                <span class="blog-card-category">{{ . }}</span>
+                {{ end }}
+              {{ end }}
+              {{ with .Params.viewCount }}{{ if gt . 0 }}
+              <span class="blog-card-views">{{ lang.FormatNumber 0 . }} views</span>
+              {{ end }}{{ end }}
+            </div>
+            <h3 class="blog-card-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <p class="blog-card-excerpt">{{ .Summary | truncate 120 }}</p>
+            <a href="{{ .Permalink }}" class="read-more">อ่านเพิ่มเติม &rarr;</a>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+
+      <!-- Pagination -->
+      {{ if gt $paginator.TotalPages 1 }}
+      <nav class="pagination">
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" class="page-link page-prev">&laquo; ก่อนหน้า</a>
+        {{ end }}
+
+        <div class="page-numbers">
+          {{ $currentPage := $paginator.PageNumber }}
+          {{ $totalPages := $paginator.TotalPages }}
+          {{ range $paginator.Pagers }}
+            {{ $pageNum := .PageNumber }}
+            {{ $show := false }}
+            {{/* Always show first, last, current, and neighbors */}}
+            {{ if eq $pageNum 1 }}{{ $show = true }}{{ end }}
+            {{ if eq $pageNum $totalPages }}{{ $show = true }}{{ end }}
+            {{ if and (ge $pageNum (sub $currentPage 2)) (le $pageNum (add $currentPage 2)) }}{{ $show = true }}{{ end }}
+            {{ if $show }}
+              {{ if eq . $.Paginator }}
+              <span class="page-link page-current">{{ $pageNum }}</span>
+              {{ else }}
+              <a href="{{ .URL }}" class="page-link">{{ $pageNum }}</a>
+              {{ end }}
+            {{ else if or (eq $pageNum 2) (eq $pageNum (sub $totalPages 1)) }}
+              <span class="page-dots">...</span>
+            {{ end }}
+          {{ end }}
         </div>
-      </article>
+
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" class="page-link page-next">ถัดไป &raquo;</a>
+        {{ end }}
+      </nav>
       {{ end }}
+
+      <p class="pagination-info">แสดง {{ $paginator.PageNumber }} จาก {{ $paginator.TotalPages }} หน้า ({{ len .Pages }} บทความ)</p>
+
+      {{ partial "adsense.html" . }}
     </div>
-    {{ partial "adsense.html" . }}
+
+    <!-- Right Sidebar: Books -->
+    {{ partial "sidebar-books.html" . }}
   </div>
 </section>
 {{ end }}

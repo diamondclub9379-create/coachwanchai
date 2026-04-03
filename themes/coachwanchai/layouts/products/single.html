@@ -47,11 +47,13 @@
     </div>
   </div>
 
-  {{ with .Params.image }}
   <div class="product-hero-image">
-    <img src="{{ . }}" alt="{{ $.Title }}">
+    {{ with .Params.image }}
+    <img src="{{ . }}" alt="{{ $.Title }}" onerror="this.onerror=null;this.src='/images/placeholder-book.svg'">
+    {{ else }}
+    <img src="/images/placeholder-book.svg" alt="{{ .Title }}">
+    {{ end }}
   </div>
-  {{ end }}
 
   <div class="page-content">
     {{ partial "adsense.html" . }}

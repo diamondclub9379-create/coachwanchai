@@ -1,4 +1,4 @@
-baseURL = "https://coachwanchai-official.netlify.app/"
+baseURL = "https://coachwanchai.pages.dev/"
 languageCode = "th"
 defaultContentLanguage = "th"
 title = "Coach Wanchai - โค้ชชีวิตและธุรกิจ"
@@ -30,7 +30,7 @@ theme = "coachwanchai"
 
 [params]
   description = "Coach Wanchai - โค้ช NLP จิตใต้สำนึก กฎแรงดึงดูด สอนเทรดทองคำ แปลหนังสือ How-to พัฒนาตัวเอง เปลี่ยนชีวิตให้ดีขึ้น"
-  tagline = "โค้ช NLP | กฎแรงดึงดูด | เทรดทองคำ | หนังสือพัฒนาตัวเอง"
+  tagline = "โค้ช NLP | กฎแรงดึงดูด | เทรดทองคำ | สอน AI | หนังสือพัฒนาตัวเอง"
   youtubeChannel = "coachwanchai"
   youtubeChannelName = "coachwanchai"
   youtubeChannelHiwkrasae = "UCOLtU6KsWbTOy4dDln8SkFg"
@@ -43,6 +43,7 @@ theme = "coachwanchai"
   adsenseId = ""
   shopeeBooks = "https://shopee.co.th/coachwanchai"
   shopeeStones = "https://shopee.co.th/moneyluckyshop"
+  disqusShortname = "coach-wanchai"
 
 [taxonomies]
   category = "categories"
@@ -64,21 +65,26 @@ theme = "coachwanchai"
   weight = 3
 
 [[menus.main]]
+  name = "คอร์สเรียน"
+  url = "/courses/"
+  weight = 4
+
+[[menus.main]]
   name = "บทความ"
   url = "/blog/"
-  weight = 4
+  weight = 5
 
 [[menus.main]]
   name = "สินค้า/หนังสือ"
   url = "/products/"
-  weight = 5
+  weight = 6
 
 [[menus.main]]
   name = "วิดีโอ"
   url = "/videos/"
-  weight = 6
+  weight = 7
 
 [[menus.main]]
   name = "ติดต่อ"
   url = "/contact/"
-  weight = 7
+  weight = 8
