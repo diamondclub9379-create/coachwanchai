@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Masterclass - สร้างคอนเทนต์ทุกรูปแบบด้วย AI | CoachWanchai</title>
+    <meta name="description" content="คอร์สสอน AI สร้างคอนเทนต์ครบวงจร YouTube, Facebook, Shopee, Blog - สอนจับมือทำตั้งแต่ศูนย์ โดยโค้ชวันชัย">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --accent: #FFD700;
+            --accent-glow: rgba(255, 215, 0, 0.3);
+            --bg-dark: #0a0a1a;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-card-hover: rgba(255, 255, 255, 0.08);
+            --text: #f0f0f0;
+            --text-muted: #a0a0b0;
+            --gradient-1: linear-gradient(135deg, #FF6B35 0%, #FFD700 100%);
+            --gradient-2: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a1a 100%);
+            --shadow-glow: 0 0 30px rgba(255, 107, 53, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Thai', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--gradient-2);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(255, 107, 53, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-stat .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .cta-btn {
+            display: inline-block;
+            background: var(--gradient-1);
+            color: #000;
+            font-size: 1.2rem;
+            font-weight: 800;
+            padding: 18px 48px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-glow);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(255, 107, 53, 0.5);
+        }
+
+        .cta-btn .cta-sub {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        /* ===== SECTION COMMON ===== */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== PAIN POINTS ===== */
+        .pain-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0d0d25 100%);
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .pain-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 107, 53, 0.15);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .pain-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        .pain-card .icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .pain-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .pain-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== SOLUTION / WHO AM I ===== */
+        .coach-section {
+            background: #0d0d25;
+        }
+
+        .coach-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .coach-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 20px;
+        }
+
+        .coach-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .coach-title {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .coach-achievements {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .achievement-tag {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ===== PROOF / RESULTS ===== */
+        .proof-section {
+            background: var(--bg-dark);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .proof-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .proof-card .proof-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .proof-card .proof-number {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .proof-card .proof-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ===== CURRICULUM ===== */
+        .curriculum-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0d0d25 100%);
+        }
+
+        .module {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module:hover {
+            border-color: rgba(255, 107, 53, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .module::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-1);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .module-number {
+            background: var(--gradient-1);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 6px 14px;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        .module-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .module-desc {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            padding-left: 0;
+        }
+
+        .module-topics {
+            list-style: none;
+            margin-top: 12px;
+            padding-left: 0;
+        }
+
+        .module-topics li {
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .module-topics li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ===== BONUSES ===== */
+        .bonus-section {
+            background: #0d0d25;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .bonus-card {
+            background: var(--bg-card);
+            border: 2px dashed rgba(255, 215, 0, 0.3);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .bonus-card .bonus-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .bonus-card h3 {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .bonus-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .bonus-value {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 4px 12px;
+            border-radius: 50px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonial-section {
+            background: var(--bg-dark);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-text {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-section {
+            background: linear-gradient(180deg, #0d0d25 0%, var(--bg-dark) 100%);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 36px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow-glow);
+            transform: scale(1.03);
+        }
+
+        .pricing-card.featured .popular-tag {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-1);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 6px 20px;
+            border-radius: 50px;
+        }
+
+        .pricing-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+
+        .pricing-price .currency {
+            font-size: 1.2rem;
+            vertical-align: super;
+        }
+
+        .pricing-original {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-bottom: 20px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .pricing-features li {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .pricing-features li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ===== COUNTDOWN ===== */
+        .countdown-bar {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 32px;
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(255, 107, 53, 0.3); }
+            50% { border-color: rgba(255, 107, 53, 0.7); }
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .countdown-unit {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .countdown-text {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            background: #0d0d25;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .faq-question .arrow {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 24px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+
+        .faq-item.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* ===== GUARANTEE ===== */
+        .guarantee-section {
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .guarantee-badge {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3rem;
+        }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #1a0a25 50%, var(--bg-dark) 100%);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #050510;
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ===== STICKY MOBILE CTA ===== */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            z-index: 1000;
+            border-top: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .sticky-cta .cta-btn {
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            padding: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                display: block;
+            }
+            section {
+                padding: 60px 16px;
+            }
+            .hero {
+                padding: 80px 16px 120px;
+            }
+            .hero-stats {
+                gap: 20px;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Limited Offer - รับเพียง 50 คนแรก</div>
+            <h1>
+                หยุดทำคอนเทนต์แบบเดิมๆ...<br>
+                ให้ <span class="highlight">AI ทำงานแทนคุณ</span><br>
+                ทุกแพลตฟอร์ม ทุกรูปแบบ
+            </h1>
+            <p class="subtitle">
+                คอร์สเดียวที่สอนจับมือทำจริง ตั้งแต่ศูนย์ สร้างคอนเทนต์ YouTube, Facebook, Shopee, Blog
+                ด้วยพลัง AI ได้ใน 7 วัน แม้ไม่เคยใช้ AI มาก่อน
+            </p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number">3+</div>
+                    <div class="label">ช่อง YouTube<br>ที่ใช้ AI สร้าง</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">100+</div>
+                    <div class="label">วิดีโอที่สร้างด้วย<br>AI Pipeline</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">2</div>
+                    <div class="label">ร้าน Shopee<br>ที่ใช้ AI ช่วย</div>
+                </div>
+            </div>
+
+            <a href="#pricing" class="cta-btn">
+                สมัครเรียนเลย - เริ่มต้น 1,990 บาท
+                <span class="cta-sub">สอนจับมือทำ + Group Support ตลอดชีพ</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== PAIN POINTS ===== -->
+    <section class="pain-section fade-in">
+        <div class="container">
+            <h2 class="section-title">คุณกำลังเจอปัญหาเหล่านี้อยู่ไหม?</h2>
+            <p class="section-subtitle">ถ้าคุณตอบ "ใช่" แม้แต่ข้อเดียว... คอร์สนี้คือคำตอบ</p>
+
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="icon">&#128531;</div>
+                    <h3>ไม่รู้จะเริ่มต้นยังไง</h3>
+                    <p>อยากทำคอนเทนต์ออนไลน์ แต่ไม่รู้จะเริ่มจากตรงไหน เครื่องมือเยอะจนสับสน</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">&#9200;</div>
+                    <h3>ไม่มีเวลาทำ</h3>
+                    <p>มีงานประจำ มีครอบครัว ไม่มีเวลามานั่งตัดต่อ เขียนบทความทั้งวัน</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">&#128247;</div>
+                    <h3>ไม่อยากออกหน้ากล้อง</h3>
+                    <p>ไม่มั่นใจ ไม่อยากเปิดเผยตัวตน แต่อยากมีช่องทางรายได้ออนไลน์</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">&#128176;</div>
+                    <h3>ลงทุนไม่อยากเยอะ</h3>
+                    <p>ไม่มีกล้องแพงๆ ไม่มีทีมงาน แต่อยากทำคอนเทนต์คุณภาพได้</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">&#128200;</div>
+                    <h3>ทำแล้วไม่มีคนดู</h3>
+                    <p>ลองทำเองแล้วแต่ไม่มียอดวิว ไม่รู้ว่าทำผิดตรงไหน</p>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">&#129302;</div>
+                    <h3>ใช้ AI ไม่เป็น</h3>
+                    <p>ได้ยินว่า AI ช่วยได้ แต่ลองใช้แล้วผลลัพธ์ไม่ดี ไม่รู้ Prompt ที่ถูกต้อง</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COACH / WHO AM I ===== -->
+    <section class="coach-section fade-in">
+        <div class="container">
+            <h2 class="section-title">สอนโดยคนที่ทำจริง... ไม่ใช่แค่สอน</h2>
+            <p class="section-subtitle">ทุกอย่างที่สอน ผมทำมาแล้วด้วยตัวเอง</p>
+
+            <div class="coach-card">
+                <div class="coach-avatar">&#128104;&#8205;&#127891;</div>
+                <div class="coach-name">โค้ชวันชัย ประชาเรืองวิทย์</div>
+                <div class="coach-title">AI Content Creator | NLP Coach | Digital Entrepreneur</div>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 0.95rem;">
+                    จากโค้ช NLP สู่ผู้สร้างระบบ AI Content อัตโนมัติ ผมใช้ AI สร้างช่อง YouTube หลายช่อง,
+                    บริหารร้าน Shopee 2 ร้าน, และสร้าง Pipeline สร้างวิดีโอข่าวอัตโนมัติ
+                    ที่ทำงานให้ 24 ชม. โดยไม่ต้องนั่งทำเอง
+                </p>
+
+                <div class="coach-achievements">
+                    <span class="achievement-tag">&#127909; YouTube 3+ ช่อง</span>
+                    <span class="achievement-tag">&#129302; AI Pipeline อัตโนมัติ</span>
+                    <span class="achievement-tag">&#128722; Shopee 2 ร้าน</span>
+                    <span class="achievement-tag">&#129504; NLP Certified Coach</span>
+                    <span class="achievement-tag">&#128200; เทรดทองคำ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROOF / RESULTS ===== -->
+    <section class="proof-section fade-in">
+        <div class="container">
+            <h2 class="section-title">ผลงานจริง... ไม่ได้โม้</h2>
+            <p class="section-subtitle">ทุกอย่างทำด้วย AI ระบบเดียวกับที่จะสอนในคอร์ส</p>
+
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <div class="proof-icon">&#127909;</div>
+                    <div class="proof-number">หิวกระแส</div>
+                    <div class="proof-label">ช่อง YouTube ข่าวสั้น<br>สร้างด้วย AI 100%</div>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">&#128161;</div>
+                    <div class="proof-number">ฉุกคิด-789</div>
+                    <div class="proof-label">ช่องเสริม<br>สร้างจากระบบเดียวกัน</div>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">&#128218;</div>
+                    <div class="proof-number">Shopee</div>
+                    <div class="proof-label">ร้านหนังสือ How-to<br>คอนเทนต์ด้วย AI</div>
+                </div>
+                <div class="proof-card">
+                    <div class="proof-icon">&#128640;</div>
+                    <div class="proof-number">Pipeline</div>
+                    <div class="proof-label">ระบบสร้างวิดีโอ<br>อัตโนมัติ 24 ชม.</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 32px;">
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    &#128073; ดูผลงานจริงได้ที่
+                    <a href="https://www.facebook.com/coachwanchai" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 600;">
+                        facebook.com/coachwanchai
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CURRICULUM ===== -->
+    <section class="curriculum-section fade-in">
+        <div class="container">
+            <h2 class="section-title">หลักสูตร 6 Module จับมือทำจริง</h2>
+            <p class="section-subtitle">เรียนจบแต่ละ Module มีผลงานจริงของตัวเองทุกครั้ง</p>
+
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">MODULE 1</span>
+                    <span class="module-title">AI Foundation - ปูพื้นฐาน AI ให้แน่น</span>
+                </div>
+                <p class="module-desc">เข้าใจ AI ให้ถูกต้อง และเริ่มใช้งานได้ทันทีแม้ไม่เคยใช้มาก่อน</p>
+                <ul class="module-topics">
+                    <li>ChatGPT, Claude, Gemini ต่างกันยังไง ใช้ตัวไหนดี</li>
+                    <li>เขียน Prompt อย่างมือโปร - สูตรลับที่ได้ผลลัพธ์ 10 เท่า</li>
+                    <li>ติดตั้งเครื่องมือ AI ฟรีทั้งหมดที่ต้องใช้ในคอร์ส</li>
+                    <li>Workshop: สร้างคอนเทนต์ชิ้นแรกด้วย AI ใน 30 นาที</li>
+                </ul>
+            </div>
+
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">MODULE 2</span>
+                    <span class="module-title">AI Video Creator - สร้างวิดีโอไม่ต้องออกหน้า</span>
+                </div>
+                <p class="module-desc">สร้างวิดีโอ YouTube Shorts / Reels โดยไม่ต้องถ่ายเอง ไม่ต้องออกหน้ากล้อง</p>
+                <ul class="module-topics">
+                    <li>AI เขียนบทวิดีโอ - จากหัวข้อเป็นสคริปต์ใน 5 นาที</li>
+                    <li>AI สร้างภาพประกอบสมจริง (Photorealistic)</li>
+                    <li>AI พากย์เสียง - เสียงธรรมชาติเหมือนคนจริง</li>
+                    <li>ตัดต่อวิดีโอด้วย AI + ใส่ Subtitle อัตโนมัติ</li>
+                    <li>Workshop: สร้างวิดีโอข่าวสั้น 60 วินาที เสร็จใน 1 ชม.</li>
+                </ul>
+            </div>
+
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">MODULE 3</span>
+                    <span class="module-title">AI Content Writer - เขียนคอนเทนต์ระดับมือโปร</span>
+                </div>
+                <p class="module-desc">ให้ AI ช่วยเขียนบทความ, โพสต์ Facebook, รีวิวสินค้า ที่คนอยากอ่าน</p>
+                <ul class="module-topics">
+                    <li>AI เขียนโพสต์ Facebook ที่ได้ Engagement สูง</li>
+                    <li>AI เขียนบทความ Blog / SEO ติดหน้าแรก Google</li>
+                    <li>AI เขียนรีวิวสินค้า / คำบรรยายสินค้า Shopee</li>
+                    <li>สร้าง Content Calendar ด้วย AI - วางแผน 30 วันใน 1 ชม.</li>
+                    <li>Workshop: สร้างโพสต์ขายของ + บทความ SEO ด้วย AI</li>
+                </ul>
+            </div>
+
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">MODULE 4</span>
+                    <span class="module-title">AI Image & Design - ออกแบบสวยไม่ต้องเป็นกราฟิก</span>
+                </div>
+                <p class="module-desc">สร้างภาพ, thumbnail, โปสเตอร์, ภาพโฆษณา ด้วย AI แม้ไม่เคยใช้ Photoshop</p>
+                <ul class="module-topics">
+                    <li>AI สร้างภาพ Thumbnail YouTube ที่คนอยากคลิก</li>
+                    <li>AI ออกแบบ Banner Facebook / Shopee อัตโนมัติ</li>
+                    <li>Canva + AI = ออกแบบสวยใน 5 นาที</li>
+                    <li>Workshop: สร้าง Thumbnail + Banner ครบทุกแพลตฟอร์ม</li>
+                </ul>
+            </div>
+
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">MODULE 5</span>
+                    <span class="module-title">AI Automation - สร้างระบบอัตโนมัติ</span>
+                </div>
+                <p class="module-desc">ระบบ Pipeline สร้างและเผยแพร่คอนเทนต์อัตโนมัติ เหมือนมีทีมงาน 24 ชม.</p>
+                <ul class="module-topics">
+                    <li>ตั้งเวลาโพสต์อัตโนมัติ YouTube, Facebook</li>
+                    <li>สร้าง Workflow ผลิตคอนเทนต์แบบ Mass Production</li>
+                    <li>ระบบ AI Pipeline - จากข่าวเป็นวิดีโอพร้อม Upload</li>
+                    <li>Workshop: สร้างระบบอัตโนมัติชุดแรกของคุณ</li>
+                </ul>
+            </div>
+
+            <div class="module">
+                <div class="module-header">
+                    <span class="module-number">MODULE 6</span>
+                    <span class="module-title">AI Money Machine - สร้างรายได้จากคอนเทนต์</span>
+                </div>
+                <p class="module-desc">เปลี่ยนคอนเทนต์ที่สร้างด้วย AI ให้กลายเป็นเงิน</p>
+                <ul class="module-topics">
+                    <li>YouTube Monetization - วิธีเปิดรายได้ช่อง</li>
+                    <li>Affiliate Marketing ด้วย AI Content</li>
+                    <li>ขายสินค้า/คอร์สออนไลน์ด้วย AI Sales Page</li>
+                    <li>สร้าง Passive Income หลายช่องทางพร้อมกัน</li>
+                    <li>Workshop: วางแผนรายได้ 6 เดือนข้างหน้า</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BONUSES ===== -->
+    <section class="bonus-section fade-in">
+        <div class="container">
+            <h2 class="section-title">&#127873; โบนัสพิเศษ (มูลค่ารวม 9,970 บาท)</h2>
+            <p class="section-subtitle">สมัครวันนี้ รับฟรีทั้งหมด</p>
+
+            <div class="bonus-grid">
+                <div class="bonus-card">
+                    <div class="bonus-icon">&#128218;</div>
+                    <h3>Prompt Bible</h3>
+                    <p>รวม Prompt สำเร็จรูป 100+ สูตร ใช้ได้ทันทีกับทุกงาน</p>
+                    <span class="bonus-value">มูลค่า 2,990 บาท</span>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon">&#128187;</div>
+                    <h3>AI Tools Starter Kit</h3>
+                    <p>รวมเครื่องมือ AI ฟรีทั้งหมดที่ต้องใช้ พร้อมวิธีติดตั้งทีละขั้น</p>
+                    <span class="bonus-value">มูลค่า 1,990 บาท</span>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon">&#128101;</div>
+                    <h3>Group Support ตลอดชีพ</h3>
+                    <p>กลุ่ม LINE สำหรับถาม-ตอบ แชร์ผลงาน มีโค้ชตอบเอง</p>
+                    <span class="bonus-value">มูลค่า 2,990 บาท</span>
+                </div>
+                <div class="bonus-card">
+                    <div class="bonus-icon">&#127916;</div>
+                    <h3>Video Pipeline Blueprint</h3>
+                    <p>พิมพ์เขียวระบบสร้างวิดีโออัตโนมัติ เหมือนที่ใช้กับช่อง หิวกระแส</p>
+                    <span class="bonus-value">มูลค่า 1,990 บาท</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonial-section fade-in">
+        <div class="container">
+            <h2 class="section-title">เสียงจากคนที่เรียนแล้ว</h2>
+            <p class="section-subtitle">ผลลัพธ์จริงจากคนธรรมดาที่เริ่มจากศูนย์</p>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "ไม่เคยใช้ AI มาก่อนเลย แต่หลังจากเรียน Module 2 สร้างวิดีโอ YouTube Shorts ได้เลย
+                        ตอนนี้มีวิดีโอ 30+ คลิปใน 1 เดือน โดยใช้เวลาแค่วันละ 1 ชม."
+                    </p>
+                    <div class="testimonial-author">คุณสมชาย</div>
+                    <div class="testimonial-role">พนักงานออฟฟิศ</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "เปิดร้าน Shopee ขายของ แต่ไม่เก่งเขียนคำบรรยาย โค้ชสอนใช้ AI เขียนรีวิวสินค้า
+                        ยอดขายเพิ่มขึ้นเพราะคำอธิบายสินค้าดีขึ้นมาก"
+                    </p>
+                    <div class="testimonial-author">คุณนิดา</div>
+                    <div class="testimonial-role">แม่ค้าออนไลน์</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "เกษียณแล้ว อยากมีอะไรทำ โค้ชวันชัยสอนจับมือทำจริงๆ
+                        ตอนนี้มีช่อง YouTube เล่าเรื่องสุขภาพ สร้างด้วย AI ทั้งหมด"
+                    </p>
+                    <div class="testimonial-author">คุณลุงสมศักดิ์</div>
+                    <div class="testimonial-role">วัยเกษียณ</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 20px;">
+                * ผลลัพธ์อาจแตกต่างกันในแต่ละบุคคล ขึ้นอยู่กับความขยันและเวลาที่ลงทุน
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="pricing-section fade-in" id="pricing">
+        <div class="container">
+            <h2 class="section-title">เลือกแพ็คเกจที่เหมาะกับคุณ</h2>
+            <p class="section-subtitle">ลงทุนครั้งเดียว เรียนได้ตลอดชีพ + อัพเดทฟรีตลอด</p>
+
+            <div class="countdown-bar">
+                <div class="countdown-label">&#128293; โปรราคาพิเศษหมดภายใน</div>
+                <div class="countdown-timer">
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="hours">05</div>
+                        <div class="countdown-text">ชั่วโมง</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-text">นาที</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-text">วินาที</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card featured">
+                    <div class="popular-tag">&#128293; แนะนำ - Early Bird</div>
+                    <div class="pricing-name">Early Bird (50 คนแรก)</div>
+                    <div class="pricing-price">
+                        <span class="currency">&#3647;</span>1,990
+                    </div>
+                    <div class="pricing-original">&#3647;2,990</div>
+                    <ul class="pricing-features">
+                        <li>6 Module เต็ม + Workshop ทุกบท</li>
+                        <li>Prompt Bible 100+ สูตร</li>
+                        <li>AI Tools Starter Kit</li>
+                        <li>Video Pipeline Blueprint</li>
+                        <li>Group Support ตลอดชีพ</li>
+                        <li>อัพเดทเนื้อหาฟรีตลอด</li>
+                        <li>โค้ชวันชัยตอบคำถามเอง</li>
+                    </ul>
+                    <a href="#" class="cta-btn" onclick="alert('กรุณาติดต่อ LINE: @coachwanchai เพื่อสมัคร'); return false;">
+                        สมัครราคา Early Bird
+                        <span class="cta-sub">ประหยัด 1,000 บาท - เหลือที่นั่งจำกัด</span>
+                    </a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="pricing-name">ราคาปกติ</div>
+                    <div class="pricing-price">
+                        <span class="currency">&#3647;</span>2,990
+                    </div>
+                    <div class="pricing-original">&nbsp;</div>
+                    <ul class="pricing-features">
+                        <li>6 Module เต็ม + Workshop ทุกบท</li>
+                        <li>Prompt Bible 100+ สูตร</li>
+                        <li>AI Tools Starter Kit</li>
+                        <li>Video Pipeline Blueprint</li>
+                        <li>Group Support ตลอดชีพ</li>
+                        <li>อัพเดทเนื้อหาฟรีตลอด</li>
+                    </ul>
+                    <a href="#" class="cta-btn" style="background: rgba(255,255,255,0.1); color: var(--text); box-shadow: none;"
+                       onclick="alert('กรุณาติดต่อ LINE: @coachwanchai เพื่อสมัคร'); return false;">
+                        สมัครราคาปกติ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GUARANTEE ===== -->
+    <section class="guarantee-section fade-in">
+        <div class="container">
+            <div class="guarantee-badge">&#128170;</div>
+            <h2 class="section-title">รับประกันความพอใจ 7 วัน</h2>
+            <p style="color: var(--text-muted); max-width: 500px; margin: 16px auto 0; font-size: 0.95rem;">
+                ถ้าเรียนแล้วรู้สึกว่าไม่คุ้ม ไม่ได้ประโยชน์ ภายใน 7 วัน
+                บอกผมได้เลย คืนเงินให้เต็มจำนวน ไม่ถามเหตุผล
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section fade-in">
+        <div class="container">
+            <h2 class="section-title">คำถามที่พบบ่อย</h2>
+            <p class="section-subtitle">มีข้อสงสัยอะไร ดูคำตอบได้เลย</p>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>ไม่เคยใช้ AI มาก่อนเลย เรียนได้ไหม?</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    ได้แน่นอนครับ! คอร์สนี้ออกแบบมาสำหรับมือใหม่โดยเฉพาะ สอนจับมือทำตั้งแต่การสมัครบัญชี
+                    ไปจนถึงสร้างผลงานชิ้นแรก ไม่ต้องมีพื้นฐานอะไรเลย
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>ต้องใช้คอมพิวเตอร์สเปคสูงไหม?</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    ไม่ต้องครับ คอมพิวเตอร์ธรรมดาหรือแม้แต่มือถือก็ทำได้ เพราะเราใช้ AI บน Cloud
+                    ไม่ต้องลงโปรแกรมหนักๆ เปิดเว็บเบราว์เซอร์ได้ก็เรียนได้
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>ใช้เครื่องมือ AI ฟรีหรือต้องจ่ายเพิ่ม?</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    สอนใช้เครื่องมือฟรีเป็นหลักครับ มีบางตัวที่เป็นเวอร์ชันจ่ายเงินจะให้ผลดีกว่า
+                    แต่ไม่บังคับ เริ่มจากฟรีได้ก่อน พอมีรายได้แล้วค่อยอัพเกรด
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>เรียนแล้วจะมีรายได้เมื่อไหร่?</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    ขึ้นอยู่กับความขยันครับ ถ้าทำตามที่สอน สร้างคอนเทนต์สม่ำเสมอ
+                    บางคนเริ่มมีรายได้จาก Affiliate ภายในเดือนแรก แต่ YouTube Monetization จะต้องผ่านเงื่อนไขก่อน
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>มี Group Support จริงไหม? โค้ชตอบเองจริงไหม?</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    จริงครับ กลุ่ม LINE ผมตอบเองทุกคำถาม และมีการไลฟ์ Q&A เป็นประจำ
+                    ไม่ทิ้งให้เรียนคนเดียว
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                    <span>เนื้อหาจะอัพเดทตาม AI ใหม่ๆ ไหม?</span>
+                    <span class="arrow">&#9660;</span>
+                </div>
+                <div class="faq-answer">
+                    อัพเดทตลอดครับ AI เปลี่ยนเร็ว ผมใช้เองทุกวัน เครื่องมือไหนดีกว่า จะอัพเดทเข้าคอร์สให้ฟรี
+                    ไม่ต้องจ่ายเพิ่ม
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta fade-in">
+        <div class="container" style="max-width: 600px;">
+            <h2 class="section-title">พร้อมเปลี่ยนชีวิตด้วย AI แล้วหรือยัง?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 1rem;">
+                คุณอยู่ห่างแค่คลิกเดียว จากการเริ่มต้นสร้างรายได้ออนไลน์ด้วย AI
+                ไม่ต้องออกหน้ากล้อง ไม่ต้องมีทีมงาน ไม่ต้องใช้เงินลงทุนเยอะ
+            </p>
+            <a href="#pricing" class="cta-btn">
+                สมัครเรียนเลย - เริ่มต้น 1,990 บาท
+                <span class="cta-sub">รับประกัน 7 วัน | สอนจับมือทำ | Group Support ตลอดชีพ</span>
+            </a>
+            <p style="color: var(--text-muted); margin-top: 20px; font-size: 0.85rem;">
+                หรือแอดไลน์สอบถามก่อน:
+                <a href="#" style="color: var(--accent); text-decoration: none; font-weight: 700;">@coachwanchai</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 CoachWanchai - AI Content Masterclass. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="https://www.facebook.com/coachwanchai" target="_blank" style="color: var(--primary); text-decoration: none;">Facebook</a>
+            &nbsp;|&nbsp;
+            <a href="https://www.youtube.com/@coachwanchai" target="_blank" style="color: var(--primary); text-decoration: none;">YouTube</a>
+        </p>
+    </footer>
+
+    <!-- ===== STICKY MOBILE CTA ===== -->
+    <div class="sticky-cta">
+        <a href="#pricing" class="cta-btn">
+            สมัครเลย 1,990 บาท &#128293;
+        </a>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Countdown Timer (5 hours from page load)
+        (function() {
+            const endTime = new Date().getTime() + 5 * 60 * 60 * 1000;
+
+            function updateTimer() {
+                const now = new Date().getTime();
+                const diff = endTime - now;
+
+                if (diff <= 0) {
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    return;
+                }
+
+                const h = Math.floor(diff / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('hours').textContent = String(h).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+            }
+
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        })();
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
